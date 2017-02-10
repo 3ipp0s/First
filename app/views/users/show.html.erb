@@ -1,0 +1,17 @@
+<div class="media">
+ <div class="media-left">
+   <a href="#">
+     <img class="media-object" <%= image_tag("user_default.jpg", size: "150x150", alt: "nev") %>
+   </a>
+ </div>
+
+ <div class="media-body">
+   <div class="panel panel-default">
+   		<div class="panel-footer">
+   			<font size=+2><strong> <%= @user.name %></strong></font>	
+   		</div>
+ 	<div class="panel-body">
+ 		<font size=+1><%= @user.email %></font>
+	</div>
+ </div>
+</div>
