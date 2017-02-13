@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	http_basic_authenticate_with name: "3ipp0", password: "123123", except: [:index, :show]
+ 	before_action :logged_in_user, only: [:index, :show, :new, :create]
+ 	before_action :admin_user, only: [:edit, :update, :destroy]
 
 	def index
 		@posts = Post.all
@@ -30,6 +31,9 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
+		@post.update_attribute(:title, params[:post][:title])
+		@post.update_attribute(:body, params[:post][:body])
+		@post.update_attribute(:photo, params[:post][:photo])
 
 		if(@post.update(post_params))
 			redirect_to @post
@@ -45,7 +49,21 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
-	private def post_params
-		params.require(:post).permit(:title, :body)
+	private
+
+	def post_params
+		params.require(:post).permit(:title, :body, :photo)
 	end
+
+	def logged_in_user
+    	unless logged_in?
+      		flash[:danger] = "Please log in."
+      		redirect_to login_url
+    	end
+  	end
+
+  	def admin_user
+    	redirect_to(home_url) unless current_user.admin?
+  	end
+
 end

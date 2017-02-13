@@ -9,28 +9,28 @@
     <% @user.errors.full_messages.each do |msg| %>
     <div class="alert alert-danger"><%= msg %></div>
     <% end %>
-  <% end %>
+   <% end %>
 
    	<center>
      <%= f.label :name %><BR>
      <%= f.text_field :name, class: 'form-control' %>
-	</center>
-	<center>
-     <%= f.label :email %><BR>
-     <%= f.email_field :email, class: 'form-control' %>
-     </center>
-     <center>
-     <%= f.label :password %><BR>
-     <%= f.password_field :password, class: 'form-control' %>
-     </center>
-     <center>
-     <%= f.label :password_confirmation, "Confirmation" %><BR>
-     <%= f.password_field :password_confirmation, class: 'form-control' %>
-     </center>
-	<center>
-	<BR>
-     <%= f.submit "Create my account", class: "btn btn-warning" %>
-   </center>
+	  </center>
+	  <center>
+      <%= f.label :email %><BR>
+      <%= f.email_field :email, class: 'form-control' %>
+    </center>
+    <center>
+      <%= f.label :password %><BR>
+      <%= f.password_field :password, class: 'form-control' %>
+    </center>
+    <center>
+      <%= f.label :password_confirmation, "Confirmation" %><BR>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </center>
+	  <center>
+	   <BR>
+      <%= f.submit "Create my account", class: "btn btn-warning" %>
+    </center>
    <% end %>
  </div>
 </div>

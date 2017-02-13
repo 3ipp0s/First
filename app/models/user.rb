@@ -7,6 +7,10 @@ class User < ApplicationRecord
                    uniqueness: { case_sensitive: false }
  has_secure_password
  validates :password, presence: true, length: { minimum: 5 }
+ 
+ has_attached_file :avatar, styles: { medium: "300x300>", thumb: "150x150" }, default_url: "/images/:style/missing.jpg"
+ validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+	
  def User.digest(string)
  	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
  												  BCrypt::Engine.cost
