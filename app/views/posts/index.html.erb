@@ -1,17 +1,19 @@
-<h1>Posts</h1>
-<% @posts.each do |post| %>
-	<div class="row">
+<center><h1><STRONG>Posts</STRONG></h1></center>
+<div class="row">
+	<% @posts.each do |post| %>
+	
   		<div class="col-xs-4 col-md-4">
 			<div class="thumbnail">
 	 		 <%= image_tag post.photo.url(:thumb) %>
 	 			<div class="caption">
-
-				<center><h3><%= post.title %></h3></center>
-				<center><p><%= post.body %></p></center>
-				<p><%= link_to "Read more", post_path(post), :class => 'btn btn-default' %></p>
-
+	 				<center><span class="label label-info"><%= "Price in UAH - " %>
+					<%= "#{post.price}₴" %></span></center>
+					<center><h3><%= post.title %></h3></center>
+					<% post_short = post.body.match(/^(\w+\s?\b)?{10}/).to_s %>
+					<center><p><%= post_short %></p></center>
+					<p><%= link_to "Read more", post_path(post), :class => 'btn btn-default' %></p>
 	 			</div>
 			</div>
   		</div>
-	</div>
-<% end %>
+	<% end %>
+</div>

@@ -11,12 +11,14 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = Post.new 
+		@categories = Category.all
 	end
 
 	def create
 		#render plain: params[:post].inspect
 		@post = Post.new(post_params)
+		@post.category_id = params[:category_id]
 
 		if(@post.save)
 			redirect_to @post
@@ -27,13 +29,13 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
+		@categories = Category.all
 	end
 
 	def update
 		@post = Post.find(params[:id])
-		@post.update_attribute(:title, params[:post][:title])
-		@post.update_attribute(:body, params[:post][:body])
 		@post.update_attribute(:photo, params[:post][:photo])
+		@post.category_id = params[:category_id]
 
 		if(@post.update(post_params))
 			redirect_to @post
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :photo)
+		params.require(:post).permit(:title, :body, :price, :photo)
 	end
 
 	def logged_in_user

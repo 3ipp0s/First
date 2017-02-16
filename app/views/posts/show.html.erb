@@ -1,7 +1,13 @@
-<%= image_tag @post.photo.url(:medium) %>
 
-<h2> <%= @post.title %></h2>
-<p> <%= @post.body %> </p>
+	<div class="row">
+		<div class="col-sm-8"><%= image_tag @post.photo.url(:medium) %></div>
+		<div class="col-sm-4"><span class="alert alert-info"><%= "Price in UAH - " %><strong><%= "#{@post.price}₴" %></strong></span></div>
+	
+	</div>
+
+	<h2><%= @post.title %></h2>
+	<p> <%= @post.body %> </p>
+
 
 <hr>
 <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
