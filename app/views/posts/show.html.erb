@@ -1,17 +1,16 @@
 
-	<div class="row">
-		<div class="col-sm-8"><%= image_tag @post.photo.url(:medium) %></div>
-		<div class="col-sm-4"><span class="alert alert-info"><%= "Price in UAH - " %><strong><%= "#{@post.price}₴" %></strong></span></div>
-	
-	</div>
+<div class="row">
+	<div class="col-sm-8"><%= image_tag @post.photo.url(:medium) %></div>
+	<div class="col-sm-4"><span class="alert alert-info"><%= "Price in UAH - " %><strong><%= "#{@post.price}₴" %></strong></span></div>
+</div>
 
-	<h2><%= @post.title %></h2>
-	<p> <%= @post.body %> </p>
-
+<h2><%= @post.title %></h2>
+<p> <%= @post.body %> </p>
 
 <hr>
-<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
-<%= link_to "Delete", post_path(@post),
+<p> <%= "Category of this post is - " %><span class="label label-default"><%="#{@post.category.name}" %></span> </p>
+	<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+	<%= link_to "Delete", post_path(@post),
 				method: :delete,
 				data: {confirm: 'Are you sure?'},
 				:class => 'btn btn-danger' %>

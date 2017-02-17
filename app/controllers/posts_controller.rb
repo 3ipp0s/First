@@ -12,13 +12,12 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new 
-		@categories = Category.all
 	end
 
 	def create
 		#render plain: params[:post].inspect
 		@post = Post.new(post_params)
-		@post.category_id = params[:category_id]
+		@post.category_id = params[:category][:category_id]
 
 		if(@post.save)
 			redirect_to @post
@@ -29,15 +28,13 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-		@categories = Category.all
 	end
 
 	def update
 		@post = Post.find(params[:id])
-		@post.update_attribute(:photo, params[:post][:photo])
-		@post.category_id = params[:category_id]
 
 		if(@post.update(post_params))
+			@post.save
 			redirect_to @post
 		else
 			render 'edit'
@@ -46,6 +43,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post = Post.find(params[:id])
+		@post.comments.destroy
 		@post.destroy
 
 		redirect_to posts_path

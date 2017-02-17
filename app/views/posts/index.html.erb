@@ -8,6 +8,8 @@
 	 			<div class="caption">
 	 				<center><span class="label label-info"><%= "Price in UAH - " %>
 					<%= "#{post.price}₴" %></span></center>
+					<center><span class="label label-default">
+					<%= post.category.name %></span></center>
 					<center><h3><%= post.title %></h3></center>
 					<% post_short = post.body.match(/^(\w+\s?\b)?{10}/).to_s %>
 					<center><p><%= post_short %></p></center>
