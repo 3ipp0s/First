@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
- 	before_action :logged_in_user, only: [:index, :show, :new, :create]
+ 	before_action :logged_in_user, only: [:new, :create]
  	before_action :admin_user, only: [:edit, :update, :destroy]
 
 	def index
 		@posts = Post.all
+		@order_item = current_order.order_items.new
 	end
 
 	def show
@@ -43,10 +44,13 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post = Post.find(params[:id])
-		@post.comments.destroy
-		@post.destroy
-
-		redirect_to posts_path
+		if @post.comments.exists?
+			flash[:danger]="Firstly delete comments!"
+			redirect_to post_path(@post)
+		else
+			@post.destroy
+			redirect_to posts_path
+		end
 	end
 
 	private
@@ -63,7 +67,7 @@ class PostsController < ApplicationController
   	end
 
   	def admin_user
-    	redirect_to(home_url) unless current_user.admin?
+    	redirect_to(home_url) unless (current_user && current_user.admin?)
   	end
 
 end
