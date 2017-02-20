@@ -11,6 +11,9 @@ class User < ApplicationRecord
  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "150x150" }, default_url: "/images/:style/missing.jpg"
  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 	
+ scope :by_customer, ->(customer) { where(customer: customer) }
+ scope :in_progress, -> { where(status: IN_PROGRESS) }
+
  def User.digest(string)
  	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
  												  BCrypt::Engine.cost

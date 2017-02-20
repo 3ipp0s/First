@@ -11,9 +11,3 @@ Post.delete_all
 Post.create! id: 1, title: "Banana", price: 0.49, category_id: 9, active: true
 Post.create! id: 2, title: "Apple", category_id: 9, price: 0.36, active: true
 Post.create! id: 3, title: "Maslenka", price: 2.99, category_id: 9, active: true
-
-OrderStatus.delete_all
-OrderStatus.create! id: 1, name: "In progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"

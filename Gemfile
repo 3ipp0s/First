@@ -9,6 +9,7 @@ gem 'slim'
 
 gem 'paperclip', "~> 5.0.0"
 
+gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap-sass'
 
 gem 'bcrypt', '~> 3.1.11'
