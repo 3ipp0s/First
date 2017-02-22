@@ -15,4 +15,5 @@
  <% @order_items.each do |order_item| %>
    <%= render 'carts/cart_row', post: order_item.post, order_item: order_item, show_total: true %>
  <% end %>
+  <%= link_to "Confirm your order", confirm_path(@order), :class => 'btn btn-primary' %>
 <% end %>

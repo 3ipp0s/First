@@ -1,0 +1,30 @@
+<h1>Confirmation Page</h1>
+<%= form_for :user, :url => {:action => "confirm"} do |f| %>
+
+      <p>
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, :size => 15 %>
+      </p>
+      <p>
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, :size => 15 %>
+      </p>
+      (Be sure to enter your name as it appears on your card)
+      <p>
+        <%= f.label :card_type %><br />
+        <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+      </p>
+      <p>
+        <%= f.label :card_number %><br />
+        <%= f.text_field :card_number %>
+      </p>
+      <p>
+        <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
+        <%= f.text_field :card_verification, :size => 3 %>
+      </p>
+      <p>
+        <%= f.label :card_expires_on %><br />
+        <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+      </p>
+  <p><%= f.submit "Submit" %></p>
+  <% end %>

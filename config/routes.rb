@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  
+  # get 'confirm', to: 'order#confirm_order', as: 'confirm'
+  map.resources :orders, :collection => {:confirm => :get}
 
   resources :users
 
