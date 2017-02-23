@@ -32,7 +32,9 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(user_params)
       @user.save
-      redirect_to @user
+
+      flash[:success] = "Welcome to This Katalog"
+      redirect_to home
     else
       render 'edit'
     end
@@ -40,6 +42,22 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def edit_confirmation
+    @user = User.find(params[:id])
+  end
+
+  def update_confirmation
+    @user = User.find(params[:id])
+
+    unless @user.errors.any?
+      @user.save
+      flash[:success] = "You succsesfully bought this items"
+      redirect_to home_path
+    else
+      render 'confirm'
+    end
   end
 
   def destroy

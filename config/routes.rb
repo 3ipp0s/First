@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'posts#index', as: 'home'
+  root 'pages#index', as: 'home'
+  get 'pages/index'
 
   #get 'user' => 'sessions_helper#current_user' , as: 'user'
   get 'about' => 'pages#about' , as: 'about'
@@ -23,8 +24,8 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  # get 'confirm', to: 'order#confirm_order', as: 'confirm'
-  map.resources :orders, :collection => {:confirm => :get}
+  get 'confirm', to: 'users#edit_confirmation', as: 'confirm'
+  
 
   resources :users
 
