@@ -11,34 +11,43 @@
 						<div class="flexslider posts-slider">
 		                    <ul class="slides">
 		                    	<!-- START BLOG POST -->
-		                    	
+		                    	<% @posts.each do |post| %>
 		                        <li>
 		                            <div class="slide">
 										<div class="post post-normal">
 											<!-- FEATURED IMAGE -->
 											<div class="post-header">
 												<a href="single-blog.html">
-													<img src="images/blog/1.jpg" alt="Blog cover">
+												<center><%= image_tag post.photo.url(:thumb) %></center>
 												</a>
 											</div>
 											<div class="post-content">
 												<!-- TITLE -->
-												<h3>Post Title</h3>
+												<h3><%= post.title %></h3>
+												<center><span class="label label-info"><%= "Price in UAH - " %>
+											<%= "#{post.price}₴" %></span></center>
 												<!-- DATE -->
 												<div class="post-data">
-													<p><span class="icon icon-clock"></span> December 25, 2013</p>
+													<p><span class="icon icon-clock"></span> <%= post.updated_at.strftime("%B, %d, %Y") %></p>
 												</div>
 												<!-- CONTENT -->
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec placerat sem. 
-												Vestibulum vel tristique purus. In hac habitasse platea dictumst. Suspendisse eget pellentesque dui...</p>
+												<p>
+												<% if post.body != nil %>
+												<% post_short = post.body.match(/^(\w|\s)?{55}/).to_s %>
+												<%= post_short %>...
+													<% else %>
+													<center><p>No description available!</p><BR>...<BR></center>
+												<% end %>
+													
+												</p>
 												<div class="center">
-													<a href="single-blog.html" class="btn btn-default">Read More</a>
+													<%= link_to "Read more", post_path(post), :class => 'btn btn-default' %>
 												</div>
 											</div>
 										</div>
 									</div>
 								</li>
-								
+								<% end %>
 								
 		                    	<!-- END BLOG POST -->
 		                        <li>

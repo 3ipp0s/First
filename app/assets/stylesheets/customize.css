@@ -17,14 +17,14 @@ a:hover,
 .section-content-colored .section-content .post-content a.btn:hover,
 .section-full-colored,
 .section a.btn:hover{
-	color: #82b440;
+	color: #F7A516;
 }
 .section-content-colored .section-content .event-content a.btn:hover,
 .section-content-colored .section-content .post-content a.btn:hover,
 .section a.btn:hover,
 .section-image a.btn.btn-donation,
 #menu a.btn-success{
-	border-color: #82b440;
+	border-color: #F7A516;
 }
 .section-full-colored,
 .section-content-colored .section-content,
@@ -35,11 +35,11 @@ a:hover,
 .section-image a.btn.btn-donation,
 #single-page .section-header,
 #menu a.btn-success{
-	background-color: #82b440;
+	background-color: #F7A516;
 }
 .section-content-colored.with-arrow:after,
 .section-full-colored.with-arrow:after{
-	border-top-color: #82b440;
+	border-top-color: #F7A516;
 }
 a,
 .section-content-colored.color2 .section-content .event-content a.btn:hover,
@@ -49,7 +49,7 @@ a,
 #navigation.navigation-fixed, 
 .mean-container .mean-nav ul,
 .pace .pace-progress{
-	background-color: #0DB4E9;
+	background-color: #F7A516;
 }
 .pace .pace-progress-inner {
   box-shadow: 0 0 10px #0DB4E9, 0 0 5px #0DB4E9;

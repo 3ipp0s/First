@@ -1,20 +1,118 @@
+			<!-- START NAVIGATION -->
+			<div class="sticky-wrapper">
+				<nav id="navigation">
+					<div class="container">
+						<!-- LOGO GOES HERE -->
+						<a href="index.html" id="logo"><%= image_tag"logo.png" %></a>
+						<!-- MENU -->
+						<nav>
+							<ul id="menu">
+								<li><a href="index.html#project">Project</a></li>
+								<li><a href="index.html#team">Team</a></li>
+								<li><a href="index.html#services">Services</a></li>
+								<li><a href="index.html#gallery">Gallery</a></li>
+								<li><a href="index.html#events">Events</a></li>
+								<li><a href="index.html#blog">Blog</a></li>
+								<li><a href="index.html#contact">Contact</a></li>
+								<li><a href="index.html#donation" class="btn btn-success">Donation</a></li>
+							</ul>
+						</nav>
+					</div>
+				</nav>
+			</div>
+			<!-- END NAVIGATION -->
+		
+			<!-- START PAGE SECTION -->
+			<section id="single-page" class="section with-arrow">
+				<!-- SECTION TITLE -->
+				<div class="section-header">
+					<div class="container">
+						<h1><%= @post.title %></h1>
+					</div>
+				</div>
+				<!-- SECTION CONTENT -->
+				<div class="section-content">
+					<div class="container">
+						<div class="row">
+							<!-- POST CONTENT -->
+							<div class="col-md-9">
+								<p> <%= "Category of this post is - " %><span class="label label-default"><%="#{@post.category.name}" %></span> </p>
+							    <div class="row">
+								<div class="col-sm-8"><div class="post-featured"><%= image_tag @post.photo.url(:medium) %></div></div>
+								<div class="col-sm-4"><span class="alert alert-info"><%= "Price in UAH - " %><strong><%= "#{@post.price}₴" %></strong></span></div>
+								</div>
+							    <div class="post-date">
+								    <span>Last updated at - <%= @post.updated_at.strftime("%B, %d, %Y") %></span>
+							    </div>
+							    <div class="post-content">
+								    <p><%= @post.body %></p>
+							    </div>
+							    <% if current_user && current_user.admin? %>
+							    	<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+									<%= link_to "Delete", post_path(@post),method: :delete,
+															data: {confirm: 'Are you sure?'},
+															:class => 'btn btn-danger' %>
+							    <% end %>
 
-<div class="row">
-	<div class="col-sm-8"><%= image_tag @post.photo.url(:medium) %></div>
-	<div class="col-sm-4"><span class="alert alert-info"><%= "Price in UAH - " %><strong><%= "#{@post.price}₴" %></strong></span></div>
-</div>
 
-<h2><%= @post.title %></h2>
-<p> <%= @post.body %> </p>
-
-<hr>
-<p> <%= "Category of this post is - " %><span class="label label-default"><%="#{@post.category.name}" %></span> </p>
-	<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
-	<%= link_to "Delete", post_path(@post),
-				method: :delete,
-				data: {confirm: 'Are you sure?'},
-				:class => 'btn btn-danger' %>
-<hr>
-
-<%= render 'comments/comments' %>
-<%= render 'comments/form' %>
+							    <%= render 'comments/comments' %>
+								<%= render 'comments/form' %>
+							</div>
+							<!-- SIDEBAR CONTENT -->
+							<div class="col-md-3">
+								<!-- LATEST POST WIDGET -->
+					            <div class="widget">
+					              <h3>Our latest post</h3>
+					              <ul class="widget-latests list-unstyled ">
+					                <li>
+					                  <a href="single-blog.html"><img src="images/blog/2.jpg" alt="Post thumbnail"></a>
+					                  <h4>Your Post Title</h4>
+					                  <p>The train was about to start from Allahabad, and Mr. Fogg proceeded to pay the guide the price...
+					                  <span>3 hours ago</span></p>
+					                  <a href="single-blog.html" class="btn btn-default widget-btn">Read More</a>
+					                </li>
+					              </ul>
+					            </div><!-- END .WIDGET -->
+					            <!-- ARCHIVES WIDGET -->
+					            <div class="widget">
+					              <h3>Archives</h3>
+					              <ul class="list-icon">
+					                <li><a href="#">October 2013</a></li>
+					                <li><a href="#">September 2013</a></li>
+					                <li><a href="#">August 2013</a></li>
+					                <li><a href="#">July 2013</a></li>
+					                <li><a href="#">June 2013</a></li>
+					              </ul>
+					            </div><!-- END .WIDGET -->
+					            <!-- CATEGORIES WIDGET -->
+					            <div class="widget">
+					              <h3>Categories</h3>
+					              <ul class="list-icon">
+					                <li><a href="#">Web Design</a></li>
+					                <li><a href="#">Photography</a></li>
+					                <li><a href="#">Art</a></li>
+					                <li><a href="#">Business</a></li>
+					                <li><a href="#">Mobiles</a></li>
+					                <li><a href="#">Template</a></li>
+					                <li><a href="#">WILD</a></li>
+					              </ul>
+					            </div><!-- END .WIDGET -->
+					            <!-- DONATION WIDGET -->
+					            <div class="widget">
+					              <h3>Yes, you can help us now</h3>
+					              <a href="index.html#donation" class="btn btn-default widget-btn">Make a Donation</a>
+					            </div><!-- END .WIDGET -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- END TEAM SECTION -->
+			
+			<!-- START FOOTER SECTION -->
+			<section id="footer" class="section section-full-colored">
+				<div class="section-content center">
+					<p>Juntos - Design & Development by <a href="http://2f-design.fr">2F</a></p>
+				</div>
+			</section>
+			<!-- END FOOTER SECTION -->
