@@ -1,18 +1,70 @@
-<div class="media">
- <div class="media-left">
-   <a href="#">
-     <img class="media-object" <%= image_tag @user.avatar.url(:medium) %>
-   </a>
- </div>
+			<!-- START NAVIGATION -->
+			<div class="sticky-wrapper">
+				<nav id="navigation">
+					<div class="container">
+						<!-- LOGO GOES HERE -->
+						<a id="logo">
+						<%= link_to home_path do %>
+						<%= image_tag"logo.png" %>
+						<% end %>
+						</a>
+						<!-- MENU -->
+						<nav>
+							<ul id="menu">
+								<li><a><%= link_to home_path do %>Project<%end%></a></li>
+								<li><a><%= link_to home_path do %>Team<%end%></a></li>
+								<li><a><%= link_to home_path do %>Services<% end %></a></li>
+								<li><a><%= link_to home_path do %>Gallery<%end%></a></li>
+								<li><a><%= link_to home_path do %>Blog<%end%></a></li>
+								<li><a><%= link_to home_path do %>Contact<%end%></a></li>
+								
+							</ul>
+						</nav>
+					</div>
+				</nav>
+			</div>
+			<!-- END NAVIGATION -->
+				
+			<!-- START PAGE SECTION -->
+			<section id="single-page" class="section with-arrow">
+				<!-- SECTION TITLE -->
+				<div class="section-header">
+					<div class="container">
+						<h1><strong> <%= @user.name %></strong></h1>
+					</div>
+				</div>
+				<!-- SECTION CONTENT -->
+				<div class="section-content">
+					<div class="container">
+						
+						<div class="media">
+ 							<div class="media-left">
+   								<a href="#">
+     								<img class="media-object" <%= image_tag @user.avatar.url(:medium) %>
+   								</a>
+ 							</div>
 
 
- <div class="media-body">
-   <div class="panel panel-default">
-   		<div class="panel-footer">
-   			<font size=+2><strong> <%= @user.name %></strong></font>	
-   		</div>
- 	<div class="panel-body">
- 		<font size=+1><%= @user.email %></font>
-	</div>
- </div>
-</div> <br>
+ 					<div class="media-body">
+   						<div class="panel panel-default">
+   							<div class="panel-footer">
+   								<font size=+2><strong> <%= @user.name %></strong></font>	
+   							</div>
+ 						<div class="panel-body">
+ 							<font size=+1><%= @user.email %></font>
+						</div>
+ 					</div>
+				</div> <br>
+
+					</div>
+				</div>
+			</section>
+			<!-- END TEAM SECTION -->
+			
+			<!-- START FOOTER SECTION -->
+			<section id="footer" class="section section-full-colored">
+				<div class="section-content center">
+					<p>Vlad Zippo</p>
+				</div>
+			</section>
+			<!-- END FOOTER SECTION -->

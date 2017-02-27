@@ -17,9 +17,9 @@
 										<div class="post post-normal">
 											<!-- FEATURED IMAGE -->
 											<div class="post-header">
-												<a href="single-blog.html">
+												<%= link_to post_path(post) do  %>
 												<center><%= image_tag post.photo.url(:thumb) %></center>
-												</a>
+												<% end %>
 											</div>
 											<div class="post-content">
 												<!-- TITLE -->

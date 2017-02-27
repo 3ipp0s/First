@@ -1,0 +1,44 @@
+
+			<!-- START PAGE SECTION -->
+			<section id="single-page" class="section with-arrow">
+				<!-- SECTION TITLE -->
+				<div class="section-header">
+					<div class="container">
+						<h1><strong> <%= @user.name %></strong></h1>
+					</div>
+				</div>
+				<!-- SECTION CONTENT -->
+				<div class="section-content">
+					<div class="container">
+						
+						<div class="media">
+ 							<div class="media-left">
+   								<a href="#">
+     								<img class="media-object" <%= image_tag @user.avatar.url(:medium) %>
+   								</a>
+ 							</div>
+
+
+ 					<div class="media-body">
+   						<div class="panel panel-default">
+   							<div class="panel-footer">
+   								<font size=+2><strong> <%= @user.name %></strong></font>	
+   							</div>
+ 						<div class="panel-body">
+ 							<font size=+1><%= @user.email %></font>
+						</div>
+ 					</div>
+				</div> <br>
+
+					</div>
+				</div>
+			</section>
+			<!-- END TEAM SECTION -->
+			
+			<!-- START FOOTER SECTION -->
+			<section id="footer" class="section section-full-colored">
+				<div class="section-content center">
+					<p>Vlad Zippo</p>
+				</div>
+			</section>
+			<!-- END FOOTER SECTION -->

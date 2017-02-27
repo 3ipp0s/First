@@ -33,8 +33,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       @user.save
 
-      flash[:success] = "Welcome to This Katalog"
-      redirect_to home
+      flash[:success] = "You succsesfully update your account!"
+      redirect_to home_path
     else
       render 'edit'
     end
