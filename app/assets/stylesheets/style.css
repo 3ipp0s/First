@@ -52,6 +52,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * FONTS
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@import "fonts.scss";
 body{
 	font-size: 1.7em;
 	font-family: "Varela Round", arial, sans-serif;
@@ -134,16 +135,7 @@ div.alert{
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * ICONS (icons classes at the end)
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-@font-face {
-	font-family: "icons";
-	 src:url('<%= asset_path('icons.eot')%>');
-     src:url('<%= asset_path('icons.eot?#iefix')%>') format('embedded-opentype'),
-        url('<%= asset_path('icons.ttf')%>') format('truetype'),
-        url('<%= asset_path('icons.woff')%>') format('woff'),
-        url('<%= asset_path('icons.svg#icons')%>') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
+
 [class^="icon-"], [class*=" icon-"], .icon{
 	font-family: 'icons';
 	speak: none;
