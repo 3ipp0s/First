@@ -11,8 +11,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( customize.css )
-Rails.application.config.assets.precompile += %w( style.css )
-Rails.application.config.assets.precompile += %w( fonts.scss )
+Rails.application.config.assets.precompile += %w( style.scss )
+
 
 Rails.application.config.assets.precompile += %w( alert.js )
 Rails.application.config.assets.precompile += %w( jquery.sequence-min.js )

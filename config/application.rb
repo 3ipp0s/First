@@ -12,5 +12,6 @@ module MyAppKatalog
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.serve_static_assets = true
   end
 end
